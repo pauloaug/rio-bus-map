@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+/*.admin { fill: #fefefe; }*/
+
+.nomeBairro {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  /*pointer-events: none;*/
+  stroke: none;
+  fill: lightgray;
+  opacity: .5;
+}
+
+.line {
+  stroke-width: 4;
+  opacity: .5;
+  /*stroke-dasharray: 5;*/
+  stroke-linecap: round;
+}
+
+circle {
+  opacity: .5;
+  stroke: black;
+}
+
+text {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 8px;
+  pointer-events: none;
+  stroke: black;
+  opacity: .3;
+}
+
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 1160;
+
+var projection = d3.geo.mercator()
+    .center([-43.2, -22.95])
+    // .rotate([4.4, 0])
+    // .parallels([50, 60])
+    .scale(1200 * 400)
+    .translate([width / 2, height / 2]);
+
+var path = d3.geo.path()
+    .projection(projection);
+    // .pointRadius(2);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .call(d3.behavior.zoom().on("zoom", function () {
+        svg.attr("transform", "translate(" + d3.event.translate + ")")
+        // console.log("translate = " + d3.event.translate);
+        // console.log("scale = " + d3.event.scale);
+      }))
+      .append("g")
+        .attr("fill","none")
+        .attr("stroke","lightgray");
+
+      d3.select("svg").append("marker")
+        .attr("id","marker")
+        .attr("viewBox","0 0 6 6")
+        .attr("refY","3")
+        .attr("markerWidth","7")
+        .attr("markerHeight","7")
+        .attr("orient","auto");
+
+var color = d3.scale.linear()
+    .domain([0, 80])
+    .range(["red", "green"]);
+
+var linhas = [];
+var linhasUnicas = [];
+
+var line = d3.svg.line()
+    .x(function(d) { return projection(d)[0]; })
+    .y(function(d) { return projection(d)[1]; })
+    .interpolate("basis");
+
+function onlyUnique(value, index, self) { 
+    return self.indexOf(value) === index;
+}
+
+var h;
+var listaLinhas = [];
+
+ 
+queue()
+  .defer(d3.json,'rio.json')
+  .defer(d3.json,'bus2.json')
+  // .defer(d3.json,"http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/rest/index.cfm/obterTodasPosicoes")
+  .defer(d3.csv,'bairros.csv')
+  .defer(d3.json,'geoapp/linhas.topo.json')
+  .await(makeMap);
+
+function makeMap(error, rio, bus, bairros, trajetos) {
+
+var tooltip = d3.select("body")
+  .append("div")
+  .style("position", "absolute")
+  .style("z-index", "10")
+  .style("visibility", "hidden");
+
+  var fea = topojson.feature(rio, rio.objects.ruas).features;  
+  svg.append("path")
+    .datum({type: "FeatureCollection", features: fea})
+    .attr("d", path)
+    .attr("opacity","0.4");
+
+  var admin = topojson.feature(rio, rio.objects.admin).features;
+  svg.append("path")
+    .datum({type: "FeatureCollection", features: admin})
+    .attr("d", path)
+    .attr("stroke","gray")
+    .attr("class","admin");
+
+// d3.json("bus.json",
+// d3.json("http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/rest/index.cfm/obterTodasPosicoes",
+  // d3.json("http://dadosabertos.rio.rj.gov.br/apitransporte/apresentacao/rest/index.cfm/brt",
+  // function(error, bus) {
+    var geo = {};
+    geo.type = "FeatureCollection";
+    geo.features = [];
+    bus.DATA.forEach(function(foo) {
+      var b = {};
+      var lin =  foo[2].toString().replace(" ","-");
+      // console.log(foo[2].toString().replace(" ","-"));
+      b.type = "Feature";
+      b.properties = {};
+      b.properties.ordem = foo[1];
+      b.properties.datahora = foo[0];
+      // b.properties.linha = linOK;
+      b.properties.linha = lin;
+      b.properties.velocidade = foo[5];
+      // b.properties.direcao = foo[6];
+      b.geometry = {};
+      b.geometry.type = "Point";
+      b.geometry.coordinates = [foo[4],foo[3]];
+      geo.features.push(b);
+      // linhas.push(linOK);
+      linhas.push(lin);
+    });
+
+    var linhasUnicas = linhas.filter(onlyUnique);
+
+  // svg.append("path")
+  //     .datum(geo)
+  //     .attr("d", path)
+  //     .attr("class", "geo");
+
+// function busId(d) {
+//   console.log(d.properties.ordem);
+//   return d.properties.ordem;
+// }
+
+var escalaLinhas = d3.scale.category20()
+                      .domain(linhasUnicas);
+
+  svg.selectAll(".circle")
+      .data(geo.features)
+    .enter()
+    .append("circle")
+      .attr("cx", function (d) { return projection(d.geometry.coordinates)[0]; })
+      .attr("cy", function (d) { return projection(d.geometry.coordinates)[1]; })
+      .attr("r", "4px")
+      .attr("fill", function (d) { return escalaLinhas(d.properties.linha)})
+      .attr("class",function (d) { return "circle linha"+d.properties.linha})
+
+      .on("mouseover", function(d) {
+       
+        d3.selectAll("circle")
+          // .style("opacity", "0");
+          .style("visibility", "hidden");
+
+        d3.selectAll( "."+"linha"+d.properties.linha )
+          // .style("opacity", ".8");
+          .style("visibility", "visible");
+
+        d3.selectAll("path.linha"+d.properties.linha)
+          .style("visibility", "visible");
+
+        return tooltip.style("visibility", "visible").text(d.properties.linha + " " +d3.select(this).attr("class"));
+      })
+
+      .on("mousemove", function(d){
+        return tooltip.style("top", (event.pageY-10)+"px")
+                      .style("left",(event.pageX+10)+"px")
+                      .text(d.properties.linha)
+                        .style("font-size","20px")
+                        .style("opacity", ".7")
+                        .style("color","black");
+                      })
+
+      .on("mouseout", function(d){
+        
+        d3.selectAll("circle")
+          // .transition().delay(600)
+          // .style("opacity",".5");
+        .style("visibility", "visible");
+
+        d3.selectAll("path.linha"+d.properties.linha)
+          // .transition().delay(800)
+          .style("visibility", "hidden");
+
+        return tooltip.style("visibility", "hidden");});
+
+
+  svg.selectAll(".nomeBairro")
+  .data(bairros).enter()
+    .append("text")
+      .attr("class", "nomeBairro")
+      .attr("transform", function(d) {
+        return "translate(" + projection([+d.Longitude,+d.Latitude]) + ")"; 
+      })
+      .text(function(d) {return d.Bairro});
+
+  var geojson = topojson.feature(trajetos,trajetos.objects.linhas);
+        // console.log(geojson);
+        svg.selectAll(".linhaBus")
+        .data(geojson.features)
+      .enter().append("path")
+        .style("visibility", "hidden")
+        .attr("class", function(d){ console.log(d); return "line linha"+ d.properties.linha})
+        .attr("stroke","red")
+        .attr("d",function(d){ return line(d.geometry.coordinates);
+          });
+
+}
+
+</script>

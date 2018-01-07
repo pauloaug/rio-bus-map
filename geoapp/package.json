@@ -1,0 +1,10 @@
+{
+  "name": "meu-pacote",
+  "version": "0.0.1",
+  "main": "./index",
+  "dependencies": {
+    "d3": "3",
+    "request"    : "latest",
+    "topojson"	 : "latest"
+  }
+}

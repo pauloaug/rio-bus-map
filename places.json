@@ -1,0 +1,551 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ayr"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.617021378468872,
+          55.44930882146421
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Aberdeen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.080920437638788,
+          57.17007125822547
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Perth"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.4711367460572298,
+          56.39993981799665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dundee"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.0010302301960436,
+          56.46995176710836
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Middlesbrough"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.230398780653088,
+          54.57962914109217
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Coventry"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5010193078758114,
+          52.420198085677846
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bath"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.3515409648615098,
+          51.38314608946063
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Exeter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.53144646355258,
+          50.69943564891658
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cambridge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.11651824340971828,
+          52.20031680799888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kingston upon Hull"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.3303922272609494,
+          53.75042511880035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Londonderry"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -7.334051471785005,
+          54.99970083576244
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lisburn"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -6.670644579336161,
+          54.5194626223243
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Penzance"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.551048798140441,
+          50.13277643579367
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.0803976884210655,
+          53.970306396479316
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Blackpool"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.0505151266024857,
+          53.8302824982559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dumfries"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.5500032997049953,
+          55.06643097475954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scarborough"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.43090842308653166,
+          54.279890483957665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Plymouth"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.160832489721997,
+          50.38438187791388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ipswich"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.1696186950592846,
+          52.07013834011929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Norwich"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.2995165481261903,
+          52.630233933012974
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Brighton"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.17111271695271846,
+          50.829614116796165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kirkwall"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.9515453337896034,
+          58.9663153276228
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Inverness"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.233513431318958,
+          57.466528105245374
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Oxford"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.2505020198182049,
+          51.77039968298478
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Luton"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.4200836019976233,
+          51.879793353471825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Portsmouth"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.0803976884210655,
+          50.80007782576467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Peterborough"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2515256736131839,
+          52.57991284458893
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Nottingham"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.1700890631577394,
+          52.96935431152283
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stoke"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.1814366334643704,
+          52.9999845392592
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dover"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.2995165481261903,
+          51.13263458404529
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Edinburgh"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.220619457999625,
+          55.94814395888515
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Newcastle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6030819067140953,
+          55.00188870917218
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Liverpool"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.920617273535578,
+          53.417868360519726
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cardiff"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.2252586670377283,
+          51.4991033801769
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wick"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.0845359928819125,
+          58.432474215646
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Leeds"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5829786675489785,
+          53.83137643496077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lerwick"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.1515322270053243,
+          60.14995484229266
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Manchester"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.2510247690359275,
+          53.50210148679475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Birmingham"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.923187330343259,
+          52.47598885762624
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Belfast"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.960845596506277,
+          54.599320001779844
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Glasgow"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.2536166704840745,
+          55.87594413636369
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "London"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.12008141753357648,
+          51.50129125358664
+        ]
+      }
+    }
+  ]
+}
